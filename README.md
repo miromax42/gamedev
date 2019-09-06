@@ -1,2 +1,2 @@
 # gamedev
-projects
+games & projects
