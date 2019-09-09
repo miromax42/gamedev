@@ -7,6 +7,8 @@ public class Shooting : MonoBehaviour
     public Transform firePoint;
     public GameObject bulletPrefab;
     public Joystick fireJs;
+    public float nexttimeToFire;
+    public float fireRate;
 
     public float bulletForce;
     // Start is called before the first frame update
@@ -19,8 +21,9 @@ public class Shooting : MonoBehaviour
     void Update()
     {
         Vector3 directionRotation = Vector3.up * fireJs.Vertical + Vector3.right * fireJs.Horizontal;
-        if (directionRotation.magnitude > 0.05)
+        if (directionRotation.magnitude > 0.05 && Time.time>=nexttimeToFire)
         {
+            nexttimeToFire = Time.time + 1f / fireRate;
             shoot();
         }
     }
