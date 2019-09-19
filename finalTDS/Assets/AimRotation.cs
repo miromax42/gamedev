@@ -2,6 +2,8 @@
 
 public class AimRotation : MonoBehaviour
 {
+
+    //new
     [Range(0,359.99f)]  public float aim_angle;
     public float step;
     public float delta;
@@ -20,8 +22,10 @@ public class AimRotation : MonoBehaviour
     void FixedUpdate()
     {
         
+            rb.rotation = RotateSmoth(aim_angle);
+   
+
         
-        rb.rotation = RotateSmoth(aim_angle);
         
     }
     /// <summary>
